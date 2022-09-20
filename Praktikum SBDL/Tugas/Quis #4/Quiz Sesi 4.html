@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Sesi 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        //untuk memanggil bootstrap
+</head>
+  <body>
+    
+    <div class="container">
+        <h3 align="center">Data Peserta Keluarga Berencana Baru Di Wilayah Provinsi DKI Jakarta</h3>
+    
+        <table class="table table-bordered" id="dataTabel">
+            <tr>
+                <th>Tahun</th>
+                <th>Wilayah</th>
+                <th>Metode Kotrasepsi</th>
+                <th>Jenis Fasilitas Kesehatan</th>
+                <th>Jumlah</th>
+            </tr>
+        </table>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    
+    <script> // agar js dapat berfungsi di html
+        
+        var dataPeserta = [
+        
+        {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 5257
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 1124
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 242
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 1202
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 623
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 246
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 31
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 46
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 10
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 1
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Kondom",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 1814
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Kondom",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 195
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Kondom",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 329
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Kondom",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 1499
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Kondom",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Implant",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 1374
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Implant",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 164
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Implant",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 23
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Implant",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 213
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Implant",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Suntikan",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 10381
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Suntikan",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 2862
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Suntikan",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 3136
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Suntikan",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 16940
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Suntikan",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Pil",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 4809
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Pil",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 1361
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Pil",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 1385
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Pil",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 8520
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Selatan",
+        metode_kontrasepsi: "Pil",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 2080
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 1066
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 302
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: 865
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Intra Uterus Device (IUD)",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: 0
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 343
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Swasta",
+        jumlah: 439
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Dokter Praktek",
+        jumlah: 67
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Bidan Praktek Mandiri",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Wanita (MOW)",
+        jenis_fasilitas_kesehatan: "Lainnya",
+        jumlah: null
+    },
+    {
+        tahun: 2015,
+        wilayah: "Jakarta Barat",
+        metode_kontrasepsi: "Metode Operasi Pria (MOP)",
+        jenis_fasilitas_kesehatan: "Fasilitas Kesehatan KB Pemerintah",
+        jumlah: 31
+    },
+      ];
+
+      let tabel = document.getElementById("dataTabel"); // variabelnya table
+    
+      let tabelBody = document.createElement("tbody"); // element baru, bungkus tabel isi dengan tag <tbody>
+        for (let i = 0; i < dataPeserta.length; i++) { // Perulangan array
+    
+            let row = document.createElement("tr"); //Setiap looping, ada garis baru yang ditandai tag <tr>
+    
+                for (let prop in dataPeserta[i]) { // Setiap akhir <tr> baru <td>
+    
+                    let cell = document.createElement("td"); //Membuat kolom atau cell secara auto <td>
+    
+                        let cellText = document.createTextNode(dataPeserta[i][prop]);
+    
+                        cell.appendChild(cellText);
+    
+                        row.appendChild(cell);
+
+                    }
+    
+    tabelBody.appendChild(row);
+    
+}
+    
+    tabel.appendChild(tabelBody);
+    </script>
+  </body>
+</html>
