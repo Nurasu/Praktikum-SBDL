@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Nuzul Ramadhani Sumahna - 2019081033" />
+    <meta name="keywords" content="UAS SBDL" />
+    <title>UTS SBDL "DATA PRODUKSI"</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<h1><center> DATA PRODUKSI</center></h1>
+	<p align ="left"> Nama : Nuzul Ramadhani Sumahna</p>
+	<p align ="left"> NIM : 2019081033</p>
+    
+    <table align="center">
+        <script type="text/javascript" src="produksi2.js">
+        </script>
+  </head>
+  <body>
+    
+    <div align = "center">
+        <button onclick="hapus()" > Hapus Data Panen </button> <!-- body onLoad="hapus();" menyembunyikan data di produksi.json dari tampilan -->
+		<button onclick="btnShowTbl()">Tampil Data</button> <!-- body onLoad="btnshowtbl();" menampilkan data di produksi.json kedalam tabel-->
+        <button onclick="btnShowTahun()">Tampil Tahun</button> <!-- filter berdasarkan tahun -->
+        <button onclick="btnShowJenis()">Tampil Jenis</button> <!-- filter berdasarkan jenis -->
+        <button onclick="btnShowHasil()">Tampil Hasil</button> <!-- filter berdasarkan hasil -->
+    </div>
+    <table id="tbldata" border="1" align="center"> 
+        <!-- row table -->
+      <tr>
+        <th id="thTahun">Tahun</th>
+        <th id="thJenis">Jenis</th>
+        <th id="thHasil">Hasil</th>
+      </tr>
+    </table>
+  </body>
+  <br><br>
+  <footer >
+	<center>
+		Copyright@Nurasu2022
+		<img src = "日記.png" align = "center" style="width: 70px;height: 70PX;">
+	</center>
+</footer>
+</html>
