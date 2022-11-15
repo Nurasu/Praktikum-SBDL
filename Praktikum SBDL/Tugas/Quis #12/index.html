@@ -1,0 +1,68 @@
+<!DOCTYPE php?parData>
+<html>
+  <head> </head>
+
+  <body>
+    <div id="output"></div>
+    <button id="btnSimpan" onclick="simpanData()">Save</button>
+    <script type="text/javascript">
+      let dataProduk = [
+        {
+          nim: "2020087013",
+          nama: "RIVALSYACH ADINANTO",
+          kdProdi: "SIF",
+        },
+        {
+          nim: "2021081001",
+          nama: "RAJASA RUSMANA ",
+          kdProdi: "SIF",
+        },
+        {
+          nim: "2021081002",
+          nama: "YESSY",
+          kdProdi: "SIF",
+        },
+        {
+          nim: "2021081005",
+          nama: "HAFID ROIHAN",
+          kdProdi: "SIF",
+        },
+        {
+          nim: "2021081024",
+          nama: "LOLA ADRIANI PUTRI",
+          kdProdi: "SIF",
+        },
+        {
+          nim: "2021081025",
+          nama: "GLORYS",
+          kdProdi: "SIF",
+        },
+      ];
+      var indeks = 0;
+
+      function tambahData() {
+        dataProduk.push({});
+      }
+
+      function simpanData() {
+        window.location.href = "receiveDataJSON.php?parData=" + JSON.stringify(dataProduk);
+      }
+
+      var strOutput = "";
+      for (var idxIsi in dataProduk) {
+        strOutput =
+          strOutput +
+          dataProduk[idxIsi].nim +
+          " " +
+          dataProduk[idxIsi].nama +
+          " " +
+          dataProduk[idxIsi].kdProdi;
+        strOutput = strOutput + "<br>";
+      }
+      document.getElementById("output").innerHTML = strOutput;
+    </script>
+    <footer>
+      <p>Copyright@<a href="https://linktr.ee/nurasuwork">NurasuCyber2022</a></p>
+    </footer>
+  </body>
+</html>
