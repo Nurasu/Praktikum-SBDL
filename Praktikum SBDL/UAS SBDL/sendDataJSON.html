@@ -1,0 +1,154 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Nuzul Ramadhani Sumahna - 2019081033" />
+        <meta name="keywords" content="UAS SBDL" />
+        <title>UAS SBDL "ADMINISTRASI DATA"</title>
+        <h1><center> ADMINISTRASI DATA "INSERT"</center></h1>
+        <p align ="left"> Nama : Nuzul Ramadhani Sumahna</p>
+        <p align ="left"> NIM : 2019081033</p>
+    </head>
+    <style>
+        /* design */
+        h1{
+        padding: 30px;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: rgb(255, 60, 0);
+        color: white;
+        font-weight: bold;
+
+        }
+        footer {
+        padding: 30px;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: rgb(255, 60, 0);
+        color: white;
+        font-weight: bold;
+        }
+        body {
+        background-color: rgb(194, 194, 194);
+        }
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 0.5rem;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <!-- top bar -->
+            <h2>Form Insert</h2>
+            <!-- form -->
+            <div id="form">
+                <label for="">NIM</label><br>
+                <input type="text" name="nim" id="nim" required><br><br>
+                <label for="">Nama</label><br>
+                <input type="text" name="nama" id="nama" required><br><br>
+                <label for="">Kode Prodi</label><br>
+                <input type="text" name="prodi" id="prodi" required><br><br>
+                <button type="submit" id="sumbit" onclick="save()">submit</button>
+                <br><br>
+            </div>
+            <!-- end form -->
+
+            <!-- table -->
+            <table id="tbl" border="1">
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Kode Prodi</th>
+                    <th>Tools</th>
+                </tr>
+                <tbody id="table"></tbody>
+            </table>
+        </div>
+
+        <br /><br />
+        <button id="simpan" onclick="simpanData()">Save</button>
+        
+        <!-- data json -->
+        <script type="text/javascript">
+            var mahasiswa = [
+                { nim: "2020087013", nama: "RIVALSYACH ADINANTO", kdProdi: "SIF" },
+                { nim: "2021081001", nama: "RAJASA RUSMANA ", kdProdi: "SIF" },
+                { nim: "2021081002", nama: "YESSY", kdProdi: "SIF" },
+                { nim: "2021081005", nama: "HAFID ROIHAN", kdProdi: "SIF" },
+                { nim: "2021081024", nama: "LOLA ADRIANI PUTRI", kdProdi: "SIF" },
+                { nim: "2021081025", nama: "GLORYS", kdProdi: "SIF" },
+            ];
+
+            // function dari btn dan logic
+            function allData() {
+
+                table.innerHTML = ``
+
+                mahasiswa.forEach(function (value, i) {
+
+                    var table = document.getElementById('table')
+
+                    table.innerHTML += `
+                        <tr>
+                            <td>${value.nim}</td>
+                            <td>${value.nama}</td>
+                            <td>${value.kdProdi}</td>
+                            <td>
+                                <button onclick="edit(${value.nim})">Edit</button>
+                                <button onclick="">Delete</button>
+                            </td>
+                        </tr>`
+                })
+            }
+
+            // function save
+            function save() {
+                var id = 1;
+                mahasiswa.length != 0 ? mahasiswa.findLast((item) => id = item.id) : id = 0
+                var item = {
+                    nim: document.getElementById('nim').value,
+                    nama: document.getElementById('nama').value,
+                    kdProdi: document.getElementById('prodi').value
+                }
+
+                mahasiswa.push(item)
+
+                allData()
+
+                document.getElementById('form').value = "";
+            }
+
+            // function edit
+            function edit(nim) {
+                mahasiswa.forEach(function (value) {
+                    if (value.nim == nim) {
+                        document.getElementById('nim').value = value.nim
+                        document.getElementById('nama').value = value.nama
+                        document.getElementById('prodi').value = value.kdProdi
+                    }
+                })
+            }
+
+            // function save
+            function simpanData(){
+                window.location.href = "receiveDataJSON.php?parData=" + JSON.stringify(mahasiswa);
+            }
+            allData()
+        </script>
+    </body>
+
+    <footer >
+        <center>
+            Copyright@Nurasu2022
+            <img src = "日記.png" align = "center" style="width: 70px;height: 70PX;">
+        </center>
+    </footer>
+    
+</html>
